@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Object and Environment2</title>
+  <script src="https://aframe.io/releases/0.9.0/aframe.min.js"></script>
+  
+  <script src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"></script>
+  <script>
+  	AFRAME.registerComponent('foam-roller', {
+        init: function () {
+          var el = this.el;  // <a-box>
+          el.addEventListener('mouseenter', function () {
+          	  
+            el.setAttribute('position', '-1.7 1.7 -4.5');  
+           el.setAttribute('dur', '20000');  
+           el.setAttribute('startEvents', 'fusing');  
+           el.setAttribute('easing', 'linear'); 
+           el.setAttribute('fuse', 'true');   
+          });
+          
+       } 
+      });
+AFRAME.registerComponent('broom', {
+        init: function () {
+          var el = this.el;  // <a-box>
+          el.addEventListener('mouseenter', function () {
+          	  
+            el.setAttribute('position', '1.9 3.5 -4.2');  
+           el.setAttribute('dur', '20000');  
+           el.setAttribute('startEvents', 'fusing');  
+           el.setAttribute('easing', 'linear'); 
+           el.setAttribute('fuse', 'true');   
+          });
+          
+       } 
+      });
+
+AFRAME.registerComponent('shoe', {
+        init: function () {
+          var el = this.el;  // <a-box>
+          el.addEventListener('mouseenter', function () {
+          	  
+            el.setAttribute('position', '-0.7 2.6 -4.5');  
+           el.setAttribute('dur', '20000');  
+           el.setAttribute('startEvents', 'fusing');  
+           el.setAttribute('easing', 'linear'); 
+           el.setAttribute('fuse', 'true');   
+          });
+          
+       } 
+      });
+AFRAME.registerComponent('notebook', {
+        init: function () {
+          var el = this.el;  // <a-box>
+          el.addEventListener('mouseenter', function () {
+          	  
+            el.setAttribute('position', '2.8 3.5 -4.5');  
+           el.setAttribute('dur', '20000');  
+           el.setAttribute('startEvents', 'fusing');  
+           el.setAttribute('easing', 'linear'); 
+           el.setAttribute('fuse', 'true');   
+          });
+          
+       } 
+      });
+
+  </script>
+</head>
+<body>
+
+<a-scene>
+  <a-assets>        
+        <a-asste-item id="paintwall" src="SR2-Assets/316967.jpg"></a-asste-item>
+        <a-asste-item id="paintwall2" src="SR2-Assets/paintwall2.jpg"></a-asste-item>
+        <a-asste-item id="paintwall3" src="SR2-Assets/paintwall3.jpg"></a-asste-item>
+        <a-asste-item id="paintwall4" src="SR2-Assets/paintwall4.jpg"></a-asste-item>
+        <a-asste-item id="monalisa" src="SR2-Assets/monalisa.jpg"></a-asste-item>
+        <a-asste-item id="tile" src="SR2-Assets/tile.jpg"></a-asste-item>
+        <a-asste-item id="earring" src="SR2-Assets/earring.jpg"></a-asste-item>
+        <a-asste-item id="klimt" src="SR2-Assets/klimt.jpg"></a-asste-item>
+        <a-asste-item id="canvas" src="SR2-Assets/canvas3.jpg"></a-asste-item>
+
+
+        <a-asste-item id="formroller-obj" src="SR2-Assets/formroller1.obj"></a-asste-item>
+        <a-asste-item id="formroller-mtl" src="SR2-Assets/formroller1.mtl"></a-asste-item>
+        <a-asste-item id="broom-obj" src="SR2-Assets/broom1.obj"></a-asste-item>
+        <a-asste-item id="broom-mtl" src="SR2-Assets/broom1.mtl"></a-asste-item>
+        <a-asste-item id="notebook-obj" src="SR2-Assets/notebook1.obj"></a-asste-item>
+        <a-asste-item id="notebook-mtl" src="SR2-Assets/notebook1.mtl"></a-asste-item>
+        <a-asste-item id="shoe-obj" src="SR2-Assets/shoe1.obj"></a-asste-item>
+        <a-asste-item id="shoe-mtl" src="SR2-Assets/shoe1.mtl"></a-asste-item>
+  </a-assets>
+
+ <!--  <a-entity camera look-controls>
+  <a-entity cursor="fuse: true; fuseTimeout: 50"
+            position="0 0 -1"
+            geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03"
+            material="color: black; shader: flat">
+  </a-entity>
+</a-entity> -->
+           <a-entity foam-roller>
+            <a-entity obj-model="obj: #formroller-obj; mtl: #formroller-mtl"
+                      scale ="4 4 4 "
+                      position="1.5 1.5 -1"
+                      rotation="90 0 0"
+                      class="clickable"
+                      shadow="true"
+
+                      animation="property: position; fuse: true; startEvents: fusing ; to: 0 3 -6.9; dur: 1500; easing: linear;  loop: 1"
+
+                      
+                      >	
+                      </a-entity>
+            </a-entity>
+
+            <a-entity broom>
+            <a-entity obj-model="obj: #broom-obj; mtl: #broom-mtl"
+                      scale ="5 5 5"
+                      position="-2 1 -1"
+                      rotation="90 0 0"
+
+                     
+                      animation="property: position; to: 0 3 -6.9; startEvents: fusing; dur: 1500; easing: linear; dir: alternate; loop: 1"
+
+                      animation__2="property: rotation; dur: 1000; to: 0 90 0; loop: 1">
+                      </a-entity>
+                  </a-entity>
+<a-entity notebook>
+            <a-entity obj-model="obj: #notebook-obj; mtl: #notebook-mtl"
+                      scale ="4 4 4 "
+                      position="-2.5 0 -2"
+                      rotation="90 0 0"
+
+                      animation="property: position; to: 0 3 -6.9; startEvents: fusing; dur: 1500; easing: linear; dir: alternate; loop: 1"
+
+
+                      animation__2="property: rotation; dur: 1000; to: 0 180 0; loop: 1">
+                      </a-entity>
+                  </a-entity>
+
+<a-entity shoe>
+            <a-entity obj-model="obj: #shoe-obj; mtl: #shoe-mtl"
+                      scale ="7 7 7"
+                      position="0.3 0 -2"
+                      rotation="90 30 20"
+
+                      animation="property: position; to: 0 3 -6.9; startEvents: fusing; dur: 1500; easing: linear; dir: alternate; loop: 1"
+
+                      animation__2="property: rotation; dur: 1000; to: 0 180 0; loop: 1">
+                      </a-entity>
+                  </a-entity>
+
+
+
+           <a-entity id="wall">
+            <a-box scale="11 6 1"
+            position="0 3 -7"
+            src="#paintwall2"
+            ></a-box>
+
+            <a-box scale="10 6 1"
+            position="6 3 -5.2"
+            rotation="0 90 0"
+            src="#paintwall2"
+            ></a-box>
+
+            <a-box scale="10 6 1"
+            rotation="0 90 0"
+            position="-6 3 -5.2"
+            src="#paintwall2"
+            ></a-box>
+
+            <a-box scale="10 6 1"
+            rotation="0 -90 0"
+            position="-6 3 4.5"
+            src="#paintwall4"
+            ></a-box>
+
+            <a-box scale="10 6 1"
+            position="6 3 4.5"
+            rotation="0 90 0"
+            src="#paintwall3"
+            ></a-box>
+
+            <a-box scale="11 6 1"
+            position="0 3 10"
+            rotation="0 0 0"
+            ></a-box>
+           </a-entity>
+
+           <a-entity id="ceiling">
+           	<a-box scale="11 20 1"
+           	       rotation="-90 0 0"
+           	       position="0 6 0"
+           	       color="white"></a-box>
+
+           	<a-box scale="4.5 5 1"
+           	       rotation="-90 0 0"
+           	       position="0 5.9 1"
+           	       color="#439dbf"></a-box>       
+           </a-entity>
+
+
+            <a-box scale="2.5 3 1"
+            position="0 3 -6.9"
+            rotation="0 0 0"
+            src="#canvas"
+            shadow="true"
+            ></a-box>
+            <a-entity light="type: point; intensity: 0.6; distance: 4; castshadow: true;"
+                      position="0 4 -5.0"></a-entity>
+
+
+           <a-entity id="backwall">
+            <a-box scale="2 2.5 1"
+            position="0 3 9.9"
+            rotation="0 0 0"
+            src="#monalisa"
+            ></a-box>
+            <a-entity light="type: point; intensity: 1; distance: 2.5; castshadow: true;"
+                      position="0 3 8.0"></a-entity>
+
+            <a-box scale="1.7 2.2 1"
+            position="3 3 9.9"
+            rotation="0 0 0"
+            src="#earring"
+            ></a-box> 
+            <a-entity light="type: point; intensity: 1; distance: 2.5; castshadow: true;"
+                      position="3 3 8.0"></a-entity>
+
+            <a-box scale="2 3 1"
+            position="-3 3 9.9"
+            rotation="0 0 0"
+            src="#klimt"
+            ></a-box> 
+            <a-entity light="type: point; intensity: 1; distance: 2.5; castshadow: true;"
+                      position="-3 3 8.0"></a-entity>           
+           </a-entity> 
+
+
+            
+
+
+
+
+
+<a-entity light="type: ambient; intensity: 0.2"></a-entity>
+
+<a-entity light="type: point; intensity: 1.3; distance: 10; castshadow: true;"
+          position="0 2 0"></a-entity>
+
+
+     <a-plane src="#tile" rotation="-90 0 0" scale="20 20 1" repeat=" 5 5" shadow="receive: true"></a-plane>
+     <a-sky color="#d3f2f4"></a-sky>
+
+     
+      
+    
+     <a-camera>
+       <a-cursor></a-cursor>
+     </a-camera>
+
+   
+
+
+</a-scene>
+
+</body>
+</html>
